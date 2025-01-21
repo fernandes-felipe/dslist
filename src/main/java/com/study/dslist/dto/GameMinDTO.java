@@ -4,8 +4,6 @@ import java.util.Objects;
 
 import com.study.dslist.entities.Game;
 
-import jakarta.persistence.Column;
-
 public class GameMinDTO {
 
 	private Long id;
