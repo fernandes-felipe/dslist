@@ -2,27 +2,27 @@ package com.study.dslist.dto;
 
 import java.util.Objects;
 
-import com.study.dslist.entities.Game;
+import org.springframework.beans.BeanUtils;
 
-import jakarta.persistence.Column;
+import com.study.dslist.entities.Game;
 
 public class GameDTO {
 
 	private Long id;
 	private String title;
 	private Integer year;
+	private String genre;
+	private String platforms;
+	private Double score;
 	private String imgUrl;
 	private String shortDescription;
+	private String longDescription;
 	
-	public GameDTO(){
-	}
-
+	public GameDTO(){}
+	
 	public GameDTO(Game entity) {
-		id = entity.getId();
-		title = entity.getTitle();
-		year = entity.getYear();
-		imgUrl = entity.getImgUrl();
-		shortDescription = entity.getShortDescription();
+		// usado para fazer o mapeamento das entidades desde que os nomes sejam iguais
+		BeanUtils.copyProperties(entity, this);
 	}
 
 	public Long getId() {
@@ -65,9 +65,41 @@ public class GameDTO {
 		this.shortDescription = shortDescription;
 	}
 
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getPlatforms() {
+		return platforms;
+	}
+
+	public void setPlatforms(String platforms) {
+		this.platforms = platforms;
+	}
+
+	public Double getScore() {
+		return score;
+	}
+ 
+	public void setScore(Double score) {
+		this.score = score;
+	}
+
+	public String getLongDescription() {
+		return longDescription;
+	}
+
+	public void setLongDescription(String longDescription) {
+		this.longDescription = longDescription;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, imgUrl, shortDescription, title, year);
+		return Objects.hash(genre, id, imgUrl, longDescription, platforms, score, shortDescription, title, year);
 	}
 
 	@Override
@@ -79,10 +111,11 @@ public class GameDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		GameDTO other = (GameDTO) obj;
-		return Objects.equals(id, other.id) && Objects.equals(imgUrl, other.imgUrl)
+		return Objects.equals(genre, other.genre) && Objects.equals(id, other.id)
+				&& Objects.equals(imgUrl, other.imgUrl) && Objects.equals(longDescription, other.longDescription)
+				&& Objects.equals(platforms, other.platforms) && Objects.equals(score, other.score)
 				&& Objects.equals(shortDescription, other.shortDescription) && Objects.equals(title, other.title)
 				&& Objects.equals(year, other.year);
-	}
-	
+	}	
 	
 }
