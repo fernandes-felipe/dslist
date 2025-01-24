@@ -9,7 +9,7 @@ public class GameMinDTO {
 
 	private Long id;
 	private String title;
-	private Integer year;
+	private Integer gameYear;
 	private String imgUrl;
 	private String shortDescription;
 	
@@ -19,7 +19,7 @@ public class GameMinDTO {
 	public GameMinDTO(Game entity) {
 		id = entity.getId();
 		title = entity.getTitle();
-		year = entity.getYear();
+		gameYear = entity.getGameYear();
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
 	}
@@ -27,7 +27,7 @@ public class GameMinDTO {
 	public GameMinDTO(GameMinProjection projection) {
 		id = projection.getId();
 		title = projection.getTitle();
-		year = projection.getYear();
+		gameYear = projection.getGameYear();
 		imgUrl = projection.getImgUrl();
 		shortDescription = projection.getShortDescription();
 	}
@@ -48,12 +48,12 @@ public class GameMinDTO {
 		this.title = title;
 	}
 
-	public Integer getYear() {
-		return year;
+	public Integer getGameYear() {
+		return gameYear;
 	}
 
-	public void setYear(Integer year) {
-		this.year = year;
+	public void setgameYear(Integer gameYear) {
+		this.gameYear = gameYear;
 	}
 
 	public String getImgUrl() {
@@ -74,7 +74,7 @@ public class GameMinDTO {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, imgUrl, shortDescription, title, year);
+		return Objects.hash(id, imgUrl, shortDescription, title, gameYear);
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class GameMinDTO {
 		GameMinDTO other = (GameMinDTO) obj;
 		return Objects.equals(id, other.id) && Objects.equals(imgUrl, other.imgUrl)
 				&& Objects.equals(shortDescription, other.shortDescription) && Objects.equals(title, other.title)
-				&& Objects.equals(year, other.year);
+				&& Objects.equals(gameYear, other.gameYear);
 	}
 	
 	

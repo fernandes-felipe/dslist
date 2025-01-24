@@ -18,8 +18,7 @@ public class Game {
 	private Long id;
 	private String title;
 	
-	@Column(name = "game_year")
-	private Integer year;
+	private Integer gameYear;
 	private String genre;
 	private String platforms;
 	private Double score;
@@ -35,11 +34,11 @@ public class Game {
 		
 	}
 
-	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
+	public Game(Long id, String title, Integer gameYear, String genre, String platforms, Double score, String imgUrl,
 			String shortDescription, String longDescription) {
 		this.id = id;
 		this.title = title;
-		this.year = year;
+		this.gameYear = gameYear;
 		this.genre = genre;
 		this.platforms = platforms;
 		this.score = score;
@@ -64,12 +63,12 @@ public class Game {
 		this.title = title;
 	}
 
-	public Integer getYear() {
-		return year;
+	public Integer getGameYear() {
+		return gameYear;
 	}
 
-	public void setYear(Integer year) {
-		this.year = year;
+	public void setGameYear(Integer gameYear) {
+		this.gameYear = gameYear;
 	}
 
 	public String getGenre() {
@@ -114,7 +113,7 @@ public class Game {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(genre, id, imgUrl, longDescription, platforms, shortDescription, title, year);
+		return Objects.hash(genre, id, imgUrl, longDescription, platforms, shortDescription, title, gameYear);
 	}
 
 	@Override
@@ -129,7 +128,7 @@ public class Game {
 		return Objects.equals(genre, other.genre) && Objects.equals(id, other.id)
 				&& Objects.equals(imgUrl, other.imgUrl) && Objects.equals(longDescription, other.longDescription)
 				&& Objects.equals(platforms, other.platforms) && Objects.equals(shortDescription, other.shortDescription)
-				&& Objects.equals(title, other.title) && Objects.equals(year, other.year);
+				&& Objects.equals(title, other.title) && Objects.equals(gameYear, other.gameYear);
 	}
 
 	public Double getScore() {

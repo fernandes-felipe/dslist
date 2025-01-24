@@ -56,6 +56,4 @@ public class Belonging {
 		Belonging other = (Belonging) obj;
 		return Objects.equals(id, other.id) && Objects.equals(position, other.position);
 	}
-	
-	
 }
